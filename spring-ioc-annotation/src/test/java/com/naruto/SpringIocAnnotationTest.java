@@ -9,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)//在测试开始的时候自动创建Spring的应用上下文
-@ContextConfiguration(classes = SpringConfig.class)//@ContextConfiguration会告诉它需要在SpringConfig中加载配置
+@ContextConfiguration(classes = AnnotationConfig.class)//@ContextConfiguration会告诉它需要在AnnotationConfig中加载配置
 public class SpringIocAnnotationTest {
 
     @Autowired//装配
@@ -22,7 +22,7 @@ public class SpringIocAnnotationTest {
 
     @Test
     public void test_AnnotationConfigurationApplicationContext(){
-        AnnotationConfigApplicationContext applicationContext=new AnnotationConfigApplicationContext(SpringConfig.class);
+        AnnotationConfigApplicationContext applicationContext=new AnnotationConfigApplicationContext(AnnotationConfig.class);
         SpringBean springBean = (SpringBean)applicationContext.getBean("springBean");
         System.out.println(springBean.getSpringIocType());
     }
